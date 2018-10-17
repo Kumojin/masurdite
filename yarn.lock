@@ -3503,6 +3503,11 @@ electron@1.7.11:
     electron-download "^3.0.1"
     extract-zip "^1.0.3"
 
+element-theme-chalk@^2.4.8:
+  version "2.4.8"
+  resolved "https://registry.yarnpkg.com/element-theme-chalk/-/element-theme-chalk-2.4.8.tgz#c7475499891587f07494da1a48ba84711196ad5d"
+  integrity sha512-AIu7RC+JG/rYOpdVWiI3ZKN9GuKBKu+Mr1DrfYWoPJ4LD9rxpqveyFocT+DY9bJsedY/LWxluD1tid7JdnUchQ==
+
 element-ui@^2.4.8:
   version "2.4.8"
   resolved "https://registry.yarnpkg.com/element-ui/-/element-ui-2.4.8.tgz#04c684540f84983ef440b516680b0dc6a4c66eff"
