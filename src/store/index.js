@@ -29,6 +29,10 @@ export default new Vuex.Store({
       state.errors.push(error);
     },
 
+    updateAudition(state, { ear, hz, value }) {
+      state.user.profile.audition[ear][hz] = value;
+    },
+
     initialiseStore(state) {
       if (localStorage.getItem("store")) {
         this.replaceState(
@@ -40,12 +44,18 @@ export default new Vuex.Store({
   actions: {
     /* eslint-disable no-console */
     login: ({ commit }, user) => {
-      console.log(`Action: Loged, user: ${user}`);
+      console.debug(`Action: Loged, user: ${user}`);
       commit("login", user);
     },
 
     logout: ({ commit }) => {
       commit("logout");
+    },
+
+    updateAudition({ commit }, audition) {
+      const { ear, hz, value } = audition;
+      console.debug(`Updating audition for ${ear} ear, at ${hz}Hz with value ${value}dB`);
+      commit("updateAudition", audition);
     }
   }
 });
