@@ -5,7 +5,7 @@
     el-main
       ul
         li 
-          a(href="https://www.apda.ca/") Association des personnes avec une déficience de l'audition
+          a(href="https://www.apda.ca/") Association des personnes avec une déficience de l"audition
         li 
           a(href="#") In feugiat tortor sem, interdum lacinia urna pellentesque ac.
         li 
@@ -21,15 +21,16 @@
 import NavBar from "@/components/NavBar.vue";
 
 export default {
-  name: 'Infos',
+  name: "Infos",
   components: {
-    NavBar,
+    NavBar
   }
 };
 </script>
 
 <style>
-html, body {
+html,
+body {
   height: 100%;
 }
 
@@ -59,5 +60,4 @@ html, body {
     padding: 0 30px;
   }
 }
-
 </style>

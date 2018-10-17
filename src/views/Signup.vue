@@ -24,21 +24,21 @@ export default {
           {
             required: true,
             message: "Please input your email address",
-            trigger: "blur",
+            trigger: "blur"
           },
           {
             type: "email",
             message: "Please input correct email address",
-            trigger: "blur",
-          },
+            trigger: "blur"
+          }
         ],
         password: [
           {
             required: true,
             message: "Please input a password",
-            trigger: "blur",
+            trigger: "blur"
           },
-          { min: 8, message: "Length should be at least 8", trigger: "blur" },
+          { min: 8, message: "Length should be at least 8", trigger: "blur" }
         ]
       }
     };

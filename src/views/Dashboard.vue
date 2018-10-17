@@ -18,15 +18,16 @@
 import NavBar from "@/components/NavBar.vue";
 
 export default {
-  name: 'Dashboard',
+  name: "Dashboard",
   components: {
-    NavBar,
+    NavBar
   }
 };
 </script>
 
 <style>
-html, body {
+html,
+body {
   height: 100%;
 }
 
@@ -56,5 +57,4 @@ html, body {
     padding: 0 30px;
   }
 }
-
 </style>
