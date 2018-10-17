@@ -3,17 +3,20 @@
     el-header
       h1 Mon profil
     el-main
-      h2 Oreille Droite
-      form
-        div(class="audiogramme-point-entry" v-for="(step, index) in audition.steps" :key="step")
-          label {{ step }} Hz
-          input(type="number" :name="'r' + step" @change="onAuditionUpdate" placeholder="0 dB HL" v-model="audition.right[step]" :tabindex="index + 1")
-      
-      h2 Oreille Gauche
-      form
-        div(class="audiogramme-point-entry" v-for="(step, index) in audition.steps" :key="step")
-          label {{ step }} Hz
-          input(type="number" :name="'l' + step" @change="onAuditionUpdate" placeholder="0 dB HL" v-model="audition.left[step]" :tabindex="index + 11")
+      el-row
+        el-col(span="12")
+          h2 Oreille Droite
+          form(class="audiogramme-form")
+            div(class="audiogramme-point-entry" v-for="(step, index) in audition.steps" :key="step")
+              label {{ step }} Hz
+              input(type="number" :name="'r' + step" @change="onAuditionUpdate" placeholder="0 dB HL" v-model="audition.right[step]" :tabindex="index + 1")
+        
+        el-col(span="12")
+          h2 Oreille Gauche
+          form(class="audiogramme-form")
+            div(class="audiogramme-point-entry" v-for="(step, index) in audition.steps" :key="step")
+              label {{ step }} Hz
+              input(type="number" :name="'l' + step" @change="onAuditionUpdate" placeholder="0 dB HL" v-model="audition.left[step]" :tabindex="index + 11")
     el-footer 
       NavBar
 </template>
@@ -49,54 +52,31 @@ export default {
 };
 </script>
 
-<style>
-html,
-body {
-  height: 100%;
-}
-
-#app {
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-}
-
-.el-menu {
-  text-align: center;
-}
-
-.el-menu--horizontal > .el-menu-item {
-  display: inline-block;
-  float: none;
-}
-
-@media (max-width: 700px) {
-  .el-menu-item > span {
-    display: none;
-  }
-}
-
-@media (min-width: 440px) {
-  .el-menu-item {
-    padding: 0 30px;
-  }
+<style lang="css" scope>
+.audiogramme-form {
+  background: rgba(255, 255, 255, 0.8);
+  border: 1px solid #e6e6e6;
+  border-radius: 4px;
+  display: block;
+  margin: auto auto;
+  padding: 8px;
+  width: 240px;
 }
 
 .audiogramme-point-entry {
   display: block;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   font-size: 14px;
-  padding: 4px;
+  padding: 8px;
 }
 
 .audiogramme-point-entry label {
-  background: #fafafa;
   display: inline-block;
   margin-right: 4px;
   margin-top: -1px;
   padding: 4px;
   text-align: right;
-  width: 120px;
+  width: 80px;
 }
 
 .audiogramme-point-entry input {

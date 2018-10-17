@@ -4,6 +4,7 @@ import Vue from "vue";
 import Element from "element-ui";
 import firebase from "firebase";
 import "element-ui/lib/theme-chalk/index.css";
+import "./assets/style.css";
 
 import App from "./App.vue";
 import router from "./router";
