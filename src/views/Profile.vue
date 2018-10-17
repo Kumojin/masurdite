@@ -10,6 +10,7 @@
             div(class="audiogramme-point-entry" v-for="(step, index) in audition.steps" :key="step")
               label {{ step }} Hz
               input(type="number" :name="'r' + step" @change="onAuditionUpdate" placeholder="0 dB HL" v-model="audition.right[step]" :tabindex="index + 1")
+              span dB
         
         el-col(span="12")
           h2 Oreille Gauche
@@ -17,6 +18,7 @@
             div(class="audiogramme-point-entry" v-for="(step, index) in audition.steps" :key="step")
               label {{ step }} Hz
               input(type="number" :name="'l' + step" @change="onAuditionUpdate" placeholder="0 dB HL" v-model="audition.left[step]" :tabindex="index + 11")
+              span dB
     el-footer 
       NavBar
 </template>
@@ -82,5 +84,9 @@ export default {
 .audiogramme-point-entry input {
   display: inline-block;
   width: 60px;
+}
+
+.audiogramme-point-entry span {
+  padding-left: 4px;
 }
 </style>
