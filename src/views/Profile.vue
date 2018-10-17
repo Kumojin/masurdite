@@ -8,6 +8,12 @@
         div(class="audiogramme-point-entry" v-for="(step, index) in audition.steps" :key="step")
           label {{ step }} Hz
           input(type="number" :name="'r' + step" @change="onAuditionUpdate" placeholder="0 dB HL" v-model="audition.right[step]" :tabindex="index + 1")
+      
+      h2 Oreille Gauche
+      form
+        div(class="audiogramme-point-entry" v-for="(step, index) in audition.steps" :key="step")
+          label {{ step }} Hz
+          input(type="number" :name="'l' + step" @change="onAuditionUpdate" placeholder="0 dB HL" v-model="audition.left[step]" :tabindex="index + 11")
     el-footer 
       NavBar
 </template>
@@ -29,7 +35,7 @@ export default {
     onAuditionUpdate: ({ target }) => {
       const ear = target.name[0] === "l" ? "left" : "right";
       const hz = target.name.substring(1);
-      store.dispatch("updateAudition", { ear, hz, value: target.value });
+      store.dispatch("updateAudition", { ear, hz, value: Number(target.value) });
     }
   },
 
