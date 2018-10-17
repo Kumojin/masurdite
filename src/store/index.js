@@ -54,7 +54,8 @@ export default new Vuex.Store({
 
     updateAudition({ commit }, audition) {
       const { ear, hz, value } = audition;
-      console.debug(`Updating audition for ${ear} ear, at ${hz}Hz with value ${value}dB`);
+      console.debug(`
+        Updating audition for ${ear} ear, at ${hz}Hz with value ${value}dB`);
       commit("updateAudition", audition);
     }
   }

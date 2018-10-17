@@ -20,7 +20,7 @@
 
 <script>
 export default {
-  name: 'Login',
+  name: "Login",
   data() {
     return {
       error: false,
@@ -28,19 +28,19 @@ export default {
       rules: {
         email: {
           required: true,
-          message: 'Please input your email',
-          trigger: 'blur',
+          message: "Please input your email",
+          trigger: "blur"
         },
         password: {
           required: true,
-          message: 'Please input your passord',
-          trigger: 'blur',
-        },
+          message: "Please input your passord",
+          trigger: "blur"
+        }
       },
       input: {
-        email: '',
-        password: '',
-      },
+        email: "",
+        password: ""
+      }
     };
   },
   methods: {
@@ -48,39 +48,39 @@ export default {
     login() {
       this.isLoading = true;
       if (
-        this.input.email === 'julien@kumojin.com' &&
-        this.input.password === 'plop'
+        this.input.email === "julien@kumojin.com" &&
+        this.input.password === "plop"
       ) {
         const user = {
-          email: 'julien@kumojin.com',
-          name: 'Julien Maitrehenry',
+          email: "julien@kumojin.com",
+          name: "Julien Maitrehenry",
           profile: {
             audition: {}
           }
         };
-        console.log('Login valid, process to login');
-        this.$store.dispatch('login', user);
-        this.$router.push('/app/profile');
+        console.log("Login valid, process to login");
+        this.$store.dispatch("login", user);
+        this.$router.push("/app/profile");
         return;
       }
 
       if (
-        this.input.email === 'kim@kumojin.com' &&
-        this.input.password === 'plop'
+        this.input.email === "kim@kumojin.com" &&
+        this.input.password === "plop"
       ) {
         const user = {
-          email: 'kim@kumojin.com',
-          name: 'Kim Auclair',
+          email: "kim@kumojin.com",
+          name: "Kim Auclair",
           profile: {
             audition: {
-              steps: [ 250, 500, 1000, 2000, 4000, 8000 ],
+              steps: [250, 500, 1000, 2000, 4000, 8000],
               left: {
                 250: 110,
                 500: 110,
                 1000: 105,
                 2000: 90,
                 4000: 85,
-                8000: 85,
+                8000: 85
               },
               right: {
                 250: 105,
@@ -88,25 +88,25 @@ export default {
                 1000: 115,
                 2000: 110,
                 4000: 110,
-                8000: 95,
+                8000: 95
               }
             }
           }
         };
-        console.log('Login valid, process to login');
-        this.$store.dispatch('login', user);
-        this.$router.push('/app/dashboard');
+        console.log("Login valid, process to login");
+        this.$store.dispatch("login", user);
+        this.$router.push("/app/dashboard");
         return;
       }
 
       this.isLoading = false;
       this.$message({
         showClose: true,
-        message: 'Email or password invalid',
-        type: 'error',
+        message: "Email or password invalid",
+        type: "error"
       });
-    },
-  },
+    }
+  }
 };
 </script>
 
