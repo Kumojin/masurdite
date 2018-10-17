@@ -8,6 +8,12 @@
 
 <script>
 export default {
-  name: 'App',
+  name: "App"
 };
 </script>
+
+<style>
+body {
+  text-align: center;
+}
+</style>

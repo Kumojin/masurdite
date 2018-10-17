@@ -11,41 +11,41 @@
 </template>
 
 <script>
-import firebase from 'firebase';
+import firebase from "firebase";
 
 export default {
-  name: 'Signup',
+  name: "Signup",
   data() {
     return {
       isLoading: false,
-      input: { email: '', password: '' },
+      input: { email: "", password: "" },
       rules: {
         email: [
           {
             required: true,
-            message: 'Please input your email address',
-            trigger: 'blur',
+            message: "Please input your email address",
+            trigger: "blur"
           },
           {
-            type: 'email',
-            message: 'Please input correct email address',
-            trigger: 'blur',
-          },
+            type: "email",
+            message: "Please input correct email address",
+            trigger: "blur"
+          }
         ],
         password: [
           {
             required: true,
-            message: 'Please input a password',
-            trigger: 'blur',
+            message: "Please input a password",
+            trigger: "blur"
           },
-          { min: 8, message: 'Length should be at least 8', trigger: 'blur' },
-        ],
-      },
+          { min: 8, message: "Length should be at least 8", trigger: "blur" }
+        ]
+      }
     };
   },
   methods: {
     signup() {
-      this.$refs['signin'].validate(valid => {
+      this.$refs["signin"].validate(valid => {
         if (!valid) {
           return;
         }
@@ -55,22 +55,23 @@ export default {
           .auth()
           .createUserWithEmailAndPassword(this.input.email, this.input.password)
           .then(user => {
-            this.$router.push('/login');
+            console.debug("User", user, "successfully logged");
+            this.$router.push("/login");
           })
           .catch(err => {
             console.log(err);
             this.isLoading = false;
             this.$message({
               showClose: true,
-              message: err.code + ' ' + err.message,
-              type: 'error',
+              message: err.code + " " + err.message,
+              type: "error"
             });
           });
       });
 
       return false;
-    },
-  },
+    }
+  }
 };
 </script>
 
