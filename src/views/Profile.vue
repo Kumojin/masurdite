@@ -6,7 +6,7 @@
       el-row
         el-col
           h2 Oreille Droite
-          form(class="audiogramme-form")
+          form(class="right-audiogramme-form")
             div(class="audiogramme-point-entry" v-for="(step, index) in steps" :key="step")
               label {{ step }} Hz:
               input(type="number" :name="'r' + step" @change="onAuditionUpdate" placeholder="0 dB HL" v-model.number="audition.right[step]" :tabindex="index + 1")
@@ -14,7 +14,7 @@
         
         el-col
           h2 Oreille Gauche
-          form(class="audiogramme-form")
+          form(class="left-audiogramme-form")
             div(class="audiogramme-point-entry" v-for="(step, index) in steps" :key="step")
               label {{ step }} Hz:
               input(type="number" :name="'l' + step" @change="onAuditionUpdate" placeholder="0 dB HL" v-model.number="audition.left[step]" :tabindex="index + 11")
