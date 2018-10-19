@@ -4,20 +4,20 @@
       h1 Mon profil
     el-main
       el-row
-        el-col(span="12")
+        el-col
           h2 Oreille Droite
           form(class="audiogramme-form")
-            div(class="audiogramme-point-entry" v-for="(step, index) in audition.steps" :key="step")
-              label {{ step }} Hz
-              input(type="number" :name="'r' + step" @change="onAuditionUpdate" placeholder="0 dB HL" v-model="audition.right[step]" :tabindex="index + 1")
+            div(class="audiogramme-point-entry" v-for="(step, index) in steps" :key="step")
+              label {{ step }} Hz:
+              input(type="number" :name="'r' + step" @change="onAuditionUpdate" placeholder="0 dB HL" v-model.number="audition.right[step]" :tabindex="index + 1")
               span dB
         
-        el-col(span="12")
+        el-col
           h2 Oreille Gauche
           form(class="audiogramme-form")
-            div(class="audiogramme-point-entry" v-for="(step, index) in audition.steps" :key="step")
-              label {{ step }} Hz
-              input(type="number" :name="'l' + step" @change="onAuditionUpdate" placeholder="0 dB HL" v-model="audition.left[step]" :tabindex="index + 11")
+            div(class="audiogramme-point-entry" v-for="(step, index) in steps" :key="step")
+              label {{ step }} Hz:
+              input(type="number" :name="'l' + step" @change="onAuditionUpdate" placeholder="0 dB HL" v-model.number="audition.left[step]" :tabindex="index + 11")
               span dB
     el-footer 
       NavBar
@@ -34,7 +34,11 @@ export default {
     NavBar
   },
   data: () => ({
-    audition: {}
+    audition: {
+      left: {},
+      right: {}
+    },
+    steps: []
   }),
   methods: {
     onAuditionUpdate: ({ target }) => {
@@ -50,6 +54,7 @@ export default {
 
   created() {
     this.audition = store.state.user.profile.audition;
+    this.steps = store.state.steps;
   }
 };
 </script>
