@@ -16,7 +16,7 @@ const INITIAL_STATE = {
   errors: []
 };
 export default new Vuex.Store({
-  state: INITIAL_STATE,
+  state: { ...INITIAL_STATE },
   getters: {
     isAuthentified: state => state.user !== null,
     getErrors: state => state.errors
