@@ -55,7 +55,10 @@ export default {
           email: "julien@kumojin.com",
           name: "Julien Maitrehenry",
           profile: {
-            audition: {}
+            audition: {
+              left: {},
+              right: {}
+            }
           }
         };
         console.log("Login valid, process to login");
@@ -73,7 +76,6 @@ export default {
           name: "Kim Auclair",
           profile: {
             audition: {
-              steps: [250, 500, 1000, 2000, 4000, 8000],
               left: {
                 250: 110,
                 500: 110,

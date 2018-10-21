@@ -3,11 +3,20 @@ import Vuex from "vuex";
 
 Vue.use(Vuex);
 
-export default new Vuex.Store({
-  state: {
-    user: null,
-    errors: []
+const INITIAL_STATE = {
+  steps: [],
+  user: {
+    profile: {
+      audition: {
+        left: {},
+        right: {}
+      }
+    }
   },
+  errors: []
+};
+export default new Vuex.Store({
+  state: { ...INITIAL_STATE },
   getters: {
     isAuthentified: state => state.user !== null,
     getErrors: state => state.errors
@@ -18,7 +27,7 @@ export default new Vuex.Store({
     },
 
     logout(state) {
-      state.user = null;
+      state.user = INITIAL_STATE;
     },
 
     flushErrors(state) {
