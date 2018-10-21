@@ -5,7 +5,7 @@
     el-main
       ul
         li 
-          a(href="https://www.apda.ca/") Association des personnes avec une déficience de l"audition
+          a(href="https://www.apda.ca/") Association des personnes avec une déficience de l'audition
         li 
           a(href="#") In feugiat tortor sem, interdum lacinia urna pellentesque ac.
         li 

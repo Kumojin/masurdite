@@ -44,7 +44,7 @@ export default new Vuex.Store({
   actions: {
     /* eslint-disable no-console */
     login: ({ commit }, user) => {
-      console.debug(`Action: Loged, user: ${user}`);
+      console.debug(`Action: Logged, user: ${user}`);
       commit("login", user);
     },
 

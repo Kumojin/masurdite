@@ -33,7 +33,7 @@ export default {
         },
         password: {
           required: true,
-          message: "Please input your passord",
+          message: "Please input your password",
           trigger: "blur"
         }
       },
