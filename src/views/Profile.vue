@@ -53,8 +53,8 @@ export default {
   },
 
   created() {
-    this.audition = store.state.user.profile.audition;
-    this.steps = store.state.steps;
+    this.audition = this.$store.state.user.profile.audition;
+    this.steps = this.$store.state.steps;
   }
 };
 </script>
