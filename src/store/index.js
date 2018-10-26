@@ -4,7 +4,7 @@ import Vuex from "vuex";
 Vue.use(Vuex);
 
 const INITIAL_STATE = {
-  steps: [],
+  steps: [250, 500, 1000, 2000, 4000, 8000],
   user: {
     profile: {
       audition: {
@@ -27,7 +27,8 @@ export default new Vuex.Store({
     },
 
     logout(state) {
-      state.user = INITIAL_STATE;
+      state.steps = { ...INITIAL_STATE.steps };
+      state.user = { ...INITIAL_STATE.user };
     },
 
     flushErrors(state) {
