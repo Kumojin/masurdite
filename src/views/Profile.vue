@@ -6,7 +6,7 @@
       el-row
         el-col
           h2 Oreille Droite
-          form(class="right-audiogramme-form")
+          form(class="audiogramme-form right-audiogramme-form")
             div(class="audiogramme-point-entry" v-for="(step, index) in steps" :key="step")
               label {{ step }} Hz:
               input(type="number" :name="'r' + step" @change="onAuditionUpdate" placeholder="0 dB HL" v-model.number="audition.right[step]" :tabindex="index + 1")
@@ -14,7 +14,7 @@
         
         el-col
           h2 Oreille Gauche
-          form(class="left-audiogramme-form")
+          form(class="audiogramme-form left-audiogramme-form")
             div(class="audiogramme-point-entry" v-for="(step, index) in steps" :key="step")
               label {{ step }} Hz:
               input(type="number" :name="'l' + step" @change="onAuditionUpdate" placeholder="0 dB HL" v-model.number="audition.left[step]" :tabindex="index + 11")
@@ -26,7 +26,6 @@
  
 <script>
 import NavBar from "@/components/NavBar.vue";
-import store from "@/store/index.js";
 
 export default {
   name: "Profile",
@@ -41,10 +40,10 @@ export default {
     steps: []
   }),
   methods: {
-    onAuditionUpdate: ({ target }) => {
+    onAuditionUpdate: function({ target }) {
       const ear = target.name[0] === "l" ? "left" : "right";
       const hz = target.name.substring(1);
-      store.dispatch("updateAudition", {
+      this.$store.dispatch("updateAudition", {
         ear,
         hz,
         value: Number(target.value)
@@ -53,8 +52,8 @@ export default {
   },
 
   created() {
-    this.audition = store.state.user.profile.audition;
-    this.steps = store.state.steps;
+    this.audition = this.$store.state.user.profile.audition;
+    this.steps = this.$store.state.steps;
   }
 };
 </script>
@@ -88,7 +87,7 @@ export default {
 
 .audiogramme-point-entry input {
   display: inline-block;
-  width: 60px;
+  width: 70px;
 }
 
 .audiogramme-point-entry span {
